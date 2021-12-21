@@ -19,7 +19,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Continuar', 'Reiniciar Musica', 'Change Difficulty', 'Editar Notas', 'Sair Para Menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -37,7 +37,7 @@ class PauseSubState extends MusicBeatSubstate
 			var diff:String = '' + CoolUtil.difficulties[i];
 			difficultyChoices.push(diff);
 		}
-		difficultyChoices.push('BACK');
+		difficultyChoices.push('VOLTA');
 
 		pauseMusic = new FlxSound().loadEmbedded(Paths.music('breakfast'), true, true);
 		pauseMusic.volume = 0;
@@ -148,18 +148,18 @@ class PauseSubState extends MusicBeatSubstate
 
 			switch (daSelected)
 			{
-				case "Resume":
+				case "Continuar":
 					close();
 				case 'Change Difficulty':
 					menuItems = difficultyChoices;
 					regenMenu();
-				case "Chart Editor":
+				case "Editor de Notas":
 				    MusicBeatState.switchState(new editors.ChartingState());
-				case "Restart Song":
+				case "Reiniciar Musica":
 					CustomFadeTransition.nextCamera = transCamera;
 					MusicBeatState.resetState();
 					FlxG.sound.music.volume = 0;
-				case "Exit to menu":
+				case "Sair Para Menu":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 					CustomFadeTransition.nextCamera = transCamera;
@@ -171,7 +171,7 @@ class PauseSubState extends MusicBeatSubstate
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 					PlayState.changedDifficulty = false;
 
-				case 'BACK':
+				case 'VOLTA':
 					menuItems = menuItemsOG;
 					regenMenu();
 			}
