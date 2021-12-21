@@ -19,7 +19,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Continuar', 'Reiniciar Musica', 'Change Difficulty', 'Editar Notas', 'Sair Para Menu'];
+	var menuItemsOG:Array<String> = ['Continuar', 'Reiniciar Musica', 'Change Difficulty', 'Editor de Notas', 'Sair Para Menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
